@@ -370,30 +370,79 @@ export default function App() {
         </div>
 
         {/* ── Tab Navigation ─────────────────────────────────────── */}
-        <div className="flex items-center justify-center gap-1 mb-12">
+        <div className="mb-12">
+          {/* Mobile: 2-row wrapped grid */}
           <div
-            className="flex rounded-full p-1"
-            style={{ background: "#111", border: "1px solid #222" }}
+            className="flex sm:hidden flex-wrap justify-center gap-2"
           >
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className="transition-all duration-250 cursor-pointer"
                 style={{
-                  padding: "8px 20px",
-                  borderRadius: "9999px",
-                  fontSize: "10px",
+                  flex: "0 0 calc(33.33% - 6px)",
+                  padding: "9px 6px",
+                  borderRadius: 9999,
+                  fontSize: 9,
                   fontWeight: 700,
-                  letterSpacing: "0.15em",
-                  background: activeTab === tab.id ? "#EF4444" : "transparent",
+                  letterSpacing: "0.1em",
+                  whiteSpace: "nowrap",
+                  textAlign: "center",
+                  background: activeTab === tab.id ? "#EF4444" : "#111",
                   color: activeTab === tab.id ? "#fff" : "#555",
-                  border: "none",
-                  outline: "none",
+                  border: activeTab === tab.id ? "none" : "1px solid #222",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
                 }}
               >
                 {tab.label}
               </button>
+            ))}
+          </div>
+
+          {/* Desktop: centered pill row */}
+          <div className="hidden sm:flex items-center justify-center gap-1">
+            <div
+              className="flex rounded-full p-1"
+              style={{ background: "#111", border: "1px solid #222" }}
+            >
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className="transition-all duration-250 cursor-pointer"
+                  style={{
+                    padding: "8px 20px",
+                    borderRadius: "9999px",
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    letterSpacing: "0.15em",
+                    background: activeTab === tab.id ? "#EF4444" : "transparent",
+                    color: activeTab === tab.id ? "#fff" : "#555",
+                    border: "none",
+                    outline: "none",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile indicator dots */}
+          <div className="flex sm:hidden justify-center gap-1.5 mt-3">
+            {tabs.map((tab) => (
+              <div
+                key={tab.id}
+                style={{
+                  width: activeTab === tab.id ? 16 : 4,
+                  height: 4,
+                  borderRadius: 2,
+                  background: activeTab === tab.id ? "#EF4444" : "#222",
+                  transition: "all 0.25s",
+                }}
+              />
             ))}
           </div>
         </div>

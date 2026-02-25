@@ -650,7 +650,7 @@ export function PostFrames() {
           <div style={{ width: 3, height: 18, background: "#EF4444", borderRadius: 2 }} />
           <div>
             <div style={{ fontSize: 9, fontWeight: 800, color: "#EF4444", letterSpacing: "0.25em" }}>
-              PRUEBA DE IMAGEN — S-WORKS TURBO LEVO SL
+              PRUEBA DE IMAGEN — grid responsive
             </div>
             <div style={{ fontSize: 10, color: "#444", marginTop: 3, letterSpacing: "0.08em" }}>
               La misma foto con los 3 estilos de marco
@@ -658,30 +658,18 @@ export function PostFrames() {
           </div>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 20,
-          }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           <div>
             <FrameCarbono photo={bikePhoto} />
-            <div style={{ textAlign: "center", marginTop: 10, fontSize: 9, color: "#EF4444", letterSpacing: "0.18em", fontWeight: 800 }}>
-              CARBONO
-            </div>
+            <div style={{ textAlign: "center", marginTop: 10, fontSize: 9, color: "#EF4444", letterSpacing: "0.18em", fontWeight: 800 }}>CARBONO</div>
           </div>
           <div>
             <FrameEdge photo={bikePhoto} />
-            <div style={{ textAlign: "center", marginTop: 10, fontSize: 9, color: "#EF4444", letterSpacing: "0.18em", fontWeight: 800 }}>
-              EDGE
-            </div>
+            <div style={{ textAlign: "center", marginTop: 10, fontSize: 9, color: "#EF4444", letterSpacing: "0.18em", fontWeight: 800 }}>EDGE</div>
           </div>
           <div>
             <FramePhantom photo={bikePhoto} index={0} />
-            <div style={{ textAlign: "center", marginTop: 10, fontSize: 9, color: "#EF4444", letterSpacing: "0.18em", fontWeight: 800 }}>
-              PHANTOM
-            </div>
+            <div style={{ textAlign: "center", marginTop: 10, fontSize: 9, color: "#EF4444", letterSpacing: "0.18em", fontWeight: 800 }}>PHANTOM</div>
           </div>
         </div>
       </div>
@@ -754,9 +742,9 @@ export function PostFrames() {
             marginBottom: 16,
           }}
         >
-          COMPARATIVA — MISMA FOTO, 3 ESTILOS
+          COMPARATIVA — grid responsive
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div>
             <FrameCarbono photo={PHOTOS[1]} />
             <div style={{ textAlign: "center", marginTop: 8, fontSize: 9, color: "#444", letterSpacing: "0.15em", fontWeight: 700 }}>CARBONO</div>
