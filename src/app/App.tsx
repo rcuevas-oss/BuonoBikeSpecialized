@@ -7,6 +7,7 @@ import {
 } from "./components/SpecializedIcons";
 import { InstagramFeedMockup } from "./components/InstagramFeedMockup";
 import { PostFrames } from "./components/PostFrames";
+import { BrandManual } from "./components/BrandManual";
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const highlights = [
@@ -24,9 +25,10 @@ const highlights = [
   { name: "NEW",     subtitle: "NUEVO",         tag: "Launch",      component: NewIcon,      accent: "white" },
 ];
 
-type TabId = "highlights" | "stories" | "minimal" | "feed" | "frames";
+type TabId = "manual" | "highlights" | "stories" | "minimal" | "feed" | "frames";
 
 const tabs: { id: TabId; label: string }[] = [
+  { id: "manual",     label: "MANUAL" },
   { id: "highlights", label: "MINIATURAS" },
   { id: "stories",    label: "HISTORIAS 9:16" },
   { id: "minimal",    label: "ESTILO MINIMAL" },
@@ -327,7 +329,7 @@ function MinimalView() {
 
 // ── Main App ───────────────────────────────────────────────────────────────────
 export default function App() {
-  const [activeTab, setActiveTab] = useState<TabId>("highlights");
+  const [activeTab, setActiveTab] = useState<TabId>("manual");
 
   return (
     <div
@@ -448,6 +450,11 @@ export default function App() {
         </div>
 
         {/* ── Content ────────────────────────────────────────────── */}
+        {activeTab === "manual" && (
+          <div>
+            <BrandManual />
+          </div>
+        )}
         {activeTab === "highlights" && (
           <div>
             <SectionLabel label="MINIATURAS DESTACADAS" note="Formato circular · Instagram Profile" />
